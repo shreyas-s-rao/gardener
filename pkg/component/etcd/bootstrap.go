@@ -395,6 +395,7 @@ func getDruidDeployCommands(etcdConfig *config.ETCDConfig) []string {
 		"--compaction-workers=" + strconv.FormatInt(*etcdConfig.BackupCompactionController.Workers, 10),
 		"--enable-backup-compaction=" + strconv.FormatBool(*etcdConfig.BackupCompactionController.EnableBackupCompaction),
 		"--etcd-events-threshold=" + strconv.FormatInt(*etcdConfig.BackupCompactionController.EventsThreshold, 10),
+		"--feature-gates=UseEtcdWrapper=true",
 	}
 
 	if etcdConfig.BackupCompactionController.ActiveDeadlineDuration != nil {
